@@ -22,6 +22,7 @@ jobs:
              pip3 install -r requirements-extra.txt
       - run:
           name: ️️test
+          command: |
              tox -e py38
              
   build-medium-arm64:
@@ -43,6 +44,9 @@ jobs:
              pip3 install -r requirements.txt
              pip3 install -r requirements-dev.txt
              pip3 install -r requirements-extra.txt
+      - run:
+          name: ️️test
+          command: |
              tox -e py38
 workflows:
   version: 2
