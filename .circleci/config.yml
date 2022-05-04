@@ -7,12 +7,10 @@ jobs:
       image: ubuntu-2004:202101-01
    
     working_directory: ~/python-lz4
-    steps:
-      
-      
+    steps:      
       - checkout
       - run:
-          name: ️️🏗️ pip dev requirements
+          name: ️️requirements
           command: |
              uname -m 
              sudo apt-get update && sudo apt-get -y install python3 python3-pip 
@@ -22,6 +20,8 @@ jobs:
              pip3 install -r requirements.txt
              pip3 install -r requirements-dev.txt
              pip3 install -r requirements-extra.txt
+      - run:
+          name: ️️test
              tox -e py38
              
   build-medium-arm64:
@@ -33,7 +33,7 @@ jobs:
       
       - checkout
       - run:
-          name: ️️🏗️ pip dev requirements
+          name: ️️requirements
           command: |
              uname -m 
              sudo apt-get update && sudo apt-get -y install python3 python3-pip 
